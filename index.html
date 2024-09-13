@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <p class="error" style="width: 100%; background-color: red; text-align: center; display: none;">Klaida</p>
+
+    <div class="container">
+       <div class="getRandomContainer">
+            <div class="getRandom">
+                <input type="text" placeholder="Get your dog breed">
+                <button class="getPhotoBtn">Get your dog photo</button>
+            </div>
+
+            <div class="dogPhotos"></div>
+       
+        </div> 
+
+        <div class="listContainer">
+            <div class="get">
+                <p>get all dogs breed</p>
+                <button class="getDogBtn">Get all breeds</button>
+            </div>
+            <ul id="dogList"></ul>
+        </div>
+
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

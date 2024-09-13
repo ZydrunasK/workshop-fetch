@@ -1,0 +1,38 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: cadetblue;
+}
+.getRandomContainer {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: olivedrab;
+
+}
+.dogPhotos {
+    background-color: brown;
+    width: 100%;
+    height: 20rem;
+}
+.listContainer {
+    background-color: darkgoldenrod;
+    width: 50%;
+}
+.get {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
