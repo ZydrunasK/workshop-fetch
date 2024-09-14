@@ -1,16 +1,15 @@
-const inputDOM = document.querySelector('input');
-const photoBtnDOM = document.querySelector('.getPhotoBtn');
-const dogBtnDOM = document.querySelector('.getDogBtn');
+const inputDom = document.querySelector('input');
+const btnPhoto = document.querySelector('.getPhotoBtn');
+const btnBreeds = document.querySelector('.getDogBtn');
 const dogListDOM = document.querySelector('ul');
 const errorDOM = document.querySelector('.error');
 
-photoBtnDOM.addEventListener('click', getDog)
+btnPhoto.addEventListener('click', getDog)
 
 function getDog() {
-    const inputVal = inputDOM.value.toLowerCase;
+    const inputVal = inputDom.value.toLowerCase();
 
-
-    const url = `https://dog.ceo/api/breed/${inputVal}/images`;
+    const url = `https://dog.ceo/api/breed/${inputVal}/images/random`;
 
     async function getImage() {
         try {
@@ -20,8 +19,8 @@ function getDog() {
                 throw new Error('Ivyko klaida.');
             }
 
-            const imgJason = await respone.json();
-            const image = imgJason.message;
+            const imgJson = await respone.json();
+            const image = imgJson.message;
 
             const img = document.createElement("img");
             img.src = image;
@@ -40,7 +39,7 @@ function getDog() {
         }
     }
 
-    getImage()
+    getImage();
 }
 
 
