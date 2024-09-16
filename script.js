@@ -4,7 +4,8 @@ const btnBreeds = document.querySelector('.getDogBtn');
 const dogListDOM = document.querySelector('ul');
 const errorDOM = document.querySelector('.error');
 
-btnPhoto.addEventListener('click', getDog)
+btnPhoto.addEventListener('click', getDog);
+btnBreeds.addEventListener('click', getDogList);
 
 function getDog() {
     const inputVal = inputDom.value.toLowerCase();
@@ -13,15 +14,16 @@ function getDog() {
 
     async function getImage() {
         try {
-            const respone = await fetch(url);
+            const response = await fetch(url);
 
-            if (!respone.ok) {
+            if (!response.ok) {
                 throw new Error('Ivyko klaida.');
             }
 
-            const imgJson = await respone.json();
+            const imgJson = await response.json();
             const image = imgJson.message;
-
+            console.log(imgJson);
+            
             const img = document.createElement("img");
             img.src = image;
             
@@ -41,6 +43,35 @@ function getDog() {
 
     getImage();
 }
+function getDogList() {
+    const url = 'https://dog.ceo/api/breeds/list/all'
 
+    async function list() {       
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Ivyko klaida.');
+            }
+            const allDogs = await response.json();
+            const dogList = allDogs.message
+            for (const key in dogList) {
+                console.log(key);
+            }
+
+
+
+
+        } catch (error) {
+            console.error("klaida:", error.message);
+            errorDOM.style.display = 'block';
+            errorDOM.textContent = "Klaida:" + error.message;
+
+            setTimeout(() => {
+                errorDOM.style.display = 'none';
+            },(1000 * 4))
+        }
+    }
+    list()
+}
 
 
